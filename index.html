@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Diamond Valuation</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Diamond Valuation">
+  <meta name="author" content="Tong-Fatt">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Diamond Valuation</h1>
+    <h2>Price Predicator Based On Carat</h2>
+    <p>Tong-Fatt<br/>Data Explorer</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Executive Summary</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Linear Model Regression of one predictor and one outcome is the starting point for anyone who want to understand how  predictive modelings work. At a high level, it is similar, in terms of the approach, to more complex modeling such as  generalized linear modeling, machine learning and neural network modeling.</p>
+
+<p>It involves building a model that fits current set of observations and then use the model to predict after validation and testing.</p>
+
+<p>The simple diamond valuation app (<a href="https://tong-fatt.shinyapps.io/shinyapp/">https://tong-fatt.shinyapps.io/shinyapp/</a>)
+for this project attempts to provide visualization of the basic principles behind linear model.</p>
+
+<p>Source codes are available at <a href="https://github.com/tong-fatt/dataproducts">https://github.com/tong-fatt/dataproducts</a> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Correlation of Price vs Carats</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>The plot shows that the points are not randomly distributed.</li>
+<li>The points are distributed along a line.</li>
+<li>It suggests tht mass of diamond in carats is correlated to price.</li>
+</ol>
+
+<p><img src="assets/fig/plot-1.png" alt="plot of chunk plot"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Building a model</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>The model is built by fitting a line across points (observations).</li>
+<li>The best fit line means least distance between line and points</li>
+<li>The model can then be used to predict expected outcome.</li>
+</ol>
+
+<p><img src="assets/fig/plotline-1.png" alt="plot of chunk plotline"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="id" style="background:;">
+  <hgroup>
+    <h2>Making Prediction</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>The accuracy of prediction depends on how best fit the line is.</li>
+<li>It depends on the the quality of datasets used for training phase.</li>
+<li>Prediction made can be validated visusally without going into computaion.</li>
+</ol>
+
+<pre><code class="r">fit &lt;- lm(price ~ carat, data = diamond)
+y &lt;- diamond$price
+yhat &lt;- predict(fit)
+e &lt;- resid(fit)
+max(abs(e -(y - yhat)))
+</code></pre>
+
+<pre><code>## [1] 9.485746e-13
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Executive Summary'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Correlation of Price vs Carats'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Building a model'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Making Prediction'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
