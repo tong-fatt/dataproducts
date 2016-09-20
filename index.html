@@ -46,7 +46,7 @@
     <h2>Executive Summary</h2>
   </hgroup>
   <article data-timings="">
-    <p>Linear Model Regression of one predictor and one outcome is the starting point for anyone who want to understand how  predictive modelings work. At a high level, it is similar, in terms of the approach, to more complex modeling such as  generalized linear modeling, machine learning and neural network modeling.</p>
+    <p>Linear Model Regression of one predictor and one outcome is the starting point for anyone who wants to understand how  predictive modelings work. At a high level, it is similar, in terms of the approach, to more complex modeling such as  generalized linear modeling, machine learning and neural network modeling.</p>
 
 <p>It involves building a model that fits current set of observations and then use the model to predict after validation and testing.</p>
 
@@ -65,9 +65,9 @@ for this project attempts to provide visualization of the basic principles behin
   </hgroup>
   <article data-timings="">
     <ol>
-<li>The plot shows that the points are not randomly distributed.</li>
+<li>The plot shows that the points (i.e.observations) are not randomly distributed.</li>
 <li>The points are distributed along a line.</li>
-<li>It suggests tht mass of diamond in carats is correlated to price.</li>
+<li>They suggests that the mass of diamond in carats is correlated to price.</li>
 </ol>
 
 <p><img src="assets/fig/plot-1.png" alt="plot of chunk plot"></p>
@@ -83,8 +83,8 @@ for this project attempts to provide visualization of the basic principles behin
   <article data-timings="">
     <ol>
 <li>The model is built by fitting a line across points (observations).</li>
-<li>The best fit line means least distance between line and points</li>
-<li>The model can then be used to predict expected outcome.</li>
+<li>The best fit line means the least distance between line and points</li>
+<li>The fitted line can then be used to predict expected outcome.</li>
 </ol>
 
 <p><img src="assets/fig/plotline-1.png" alt="plot of chunk plotline"></p>
@@ -101,7 +101,7 @@ for this project attempts to provide visualization of the basic principles behin
     <ol>
 <li>The accuracy of prediction depends on how best fit the line is.</li>
 <li>It depends on the the quality of datasets used for training phase.</li>
-<li>Prediction made can be validated visusally without going into computaion.</li>
+<li>Prediction made can be validated visusally to supplement computaions.</li>
 </ol>
 
 <pre><code class="r">fit &lt;- lm(price ~ carat, data = diamond)
